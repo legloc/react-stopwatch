@@ -1,0 +1,52 @@
+body
+  background: #1e88e5
+  font-family: 'Nunito', sans-serif
+  font-size: 48px
+  color: #efefef
+
+  *
+    box-sizing: border-box
+
+
+.wrapper
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin-top: 100px
+
+.time
+  font-size: 1.4em
+
+.controls
+  display: flex
+  align-items: center
+
+  .control
+    display: flex
+    align-items: center
+    justify-content: center
+    background: none
+    border: 3px rgba(255, 255, 255, .1) solid
+    width: 1.4em
+    height: 1.4em
+    margin: 0 8px
+    border-radius: 50%
+    font-size: 1em
+    color: inherit
+    transition: all .1s ease-in-out
+    cursor: pointer
+    outline: none
+
+    &.btn-play
+      background: #4caf50
+      width: 1.6em
+      height: 1.6em
+      border: none
+      font-size: 1.2em
+      padding-left: 15px
+
+      &:active
+        background: #43a047
+
+    &.btn-reset
+      padding-bottom: 5px
