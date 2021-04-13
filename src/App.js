@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Display from './components/Display'
 import { PauseButton, ResetButton, PlayButton, StopButton } from './components/Buttons'
 import './App.sass'
 
@@ -18,7 +19,9 @@ const App = () => {
 
   return (
     <div className="wrapper">
-      <span className="time">00:00:{ seconds <= 9 ? '0' + seconds : seconds }</span>
+      <span className="time">
+        <Display seconds={ seconds } />   
+      </span>
       <div className="controls">
         <PauseButton onClick={ () => setPaused(true) } />  
         { isPaused ? <PlayButton onClick={ () => setPaused(false) } /> : <StopButton onClick={ () => { setPaused(true); setSeconds(0) }} /> }
