@@ -37,16 +37,25 @@ body
     cursor: pointer
     outline: none
 
-    &.btn-play
-      background: #4caf50
+    &.btn-play-stop
       width: 1.6em
       height: 1.6em
       border: none
       font-size: 1.2em
-      padding-left: 15px
+      padding-left: 7px
+      
+      &.btn-play
+        background: #4caf50
 
-      &:active
-        background: #43a047
+        &:active
+          background: #43a047
+
+      &.btn-stop
+        background: #f44336
+
+        &:active
+          background: #e53935
+
 
     &.btn-reset
       padding-bottom: 5px

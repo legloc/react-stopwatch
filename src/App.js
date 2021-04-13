@@ -1,23 +1,29 @@
+import { useState, useEffect } from 'react'
+import { PauseButton, ResetButton, PlayButton, StopButton } from './components/Buttons'
 import './App.sass'
 
 const App = () => {
+  const [seconds, setSeconds] = useState(0)
+  const [isPaused, setPaused] = useState(true)
+
+  useEffect(() => {
+    if (!isPaused) {
+      const intervalId = setInterval(() => {
+        setSeconds(seconds => seconds + 1)
+      }, 1000)
+
+      return () => clearInterval(intervalId)
+    }
+  }, [isPaused])
+
   return (
     <div className="wrapper">
-      
-      <span className="time">00:00:00</span>
-
+      <span className="time">00:00:{ seconds <= 9 ? '0' + seconds : seconds }</span>
       <div className="controls">
-        <button className="control btn-wait">
-          <ion-icon name="pause" />
-        </button>
-        <button className="control btn-play">
-          <ion-icon name="play" />
-        </button>
-        <button className="control btn-reset">
-          <ion-icon name="refresh" />
-        </button>
+        <PauseButton onClick={ () => setPaused(true) } />  
+        { isPaused ? <PlayButton onClick={ () => setPaused(false) } /> : <StopButton onClick={ () => { setPaused(true); setSeconds(0) }} /> }
+        <ResetButton onClick={ () => setSeconds(0) } />
       </div>
-
     </div>
   )
 }
