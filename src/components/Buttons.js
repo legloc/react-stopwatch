@@ -1,8 +1,21 @@
-const PauseButton = ({ onClick }) => (
-  <button className="control btn-wait" onClick={ onClick }>
-    <ion-icon name="pause" />
-  </button>
-)
+const PauseButton = ({ onDoubleClick }) => {
+  let clicks = 0
+  const handleDoubleClick = (doubleClickAction) => {
+    clicks++
+    if (clicks === 1)
+      setTimeout(() => {
+        if (clicks !== 1)
+          doubleClickAction()
+        clicks = 0
+      }, 300)
+  }
+
+  return (
+    <button className="control btn-wait" onClick={ () => handleDoubleClick(onDoubleClick) }>
+      <ion-icon name="pause" />
+    </button>
+  )
+}
 
 const ResetButton = ({ onClick }) => (
   <button className="control btn-reset" onClick={ onClick }>
