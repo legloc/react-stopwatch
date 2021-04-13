@@ -1,7 +1,7 @@
 body
-  background: #1e88e5
+  background: #202020
   font-family: 'Nunito', sans-serif
-  font-size: 48px
+  font-size: 16px
   color: #efefef
 
   *
@@ -11,51 +11,75 @@ body
 .wrapper
   display: flex
   flex-direction: column
+  justify-content: space-between
   align-items: center
-  margin-top: 100px
+  min-height: 100vh
+  padding: 15px 0
 
-.time
-  font-size: 1.4em
+.header
+  .header-title
+    font-size: 1.8em
+    margin: 0
+
+.display
+  font-size: 4em
 
 .controls
   display: flex
+  flex-direction: row  
+  justify-content: space-between
   align-items: center
+  width: 100%
+  padding: 0 15px
 
   .control
-    display: flex
-    align-items: center
-    justify-content: center
     background: none
-    border: 3px rgba(255, 255, 255, .1) solid
-    width: 1.4em
-    height: 1.4em
-    margin: 0 8px
-    border-radius: 50%
-    font-size: 1em
-    color: inherit
-    transition: all .1s ease-in-out
-    cursor: pointer
+    border: 2px #2e2e2e solid
+    border-radius: 8px
+    width: 90px
+    font-family: 'Nunito', sans-serif
+    font-size: 1.2em
+    font-weight: 700
+    color: #efefef
+    text-align: center
+    padding: 5px 15px
+    box-shadow:  20px 20px 60px #1d1d1d, -20px -20px 60px #272727
     outline: none
+    cursor: pointer
+    transition: all .1s ease-in-out
 
-    &.btn-play-stop
-      width: 1.6em
-      height: 1.6em
-      border: none
-      font-size: 1.2em
-      padding-left: 7px
-      
-      &.btn-play
-        background: #4caf50
+    &:hover
+      background: #2e2e2e
 
-        &:active
-          background: #43a047
+    &:active
+      background: #292929
+      border: 2px #292929 solid
 
-      &.btn-stop
-        background: #f44336
+  .btn-play-stop
+    display: flex
+    flex-shrink: 0
+    justify-content: center
+    align-items: center
+    border: none
+    border-radius: 50%
+    height: 70px
+    width: 70px
 
-        &:active
-          background: #e53935
+    &.btn-play
+      background: #f26c0b
 
+      &:active
+        background: #a94c08
 
-    &.btn-reset
-      padding-bottom: 5px
+    &.btn-stop
+      background: #e93323
+
+      &:active
+        background: #751a12
+
+@media (max-width: 520px)
+  .controls
+    justify-content: center
+
+    .control
+      margin: 0 10px
