@@ -1,21 +1,8 @@
-const PauseButton = ({ onDoubleClick }) => {
-  let clicks = 0
-  const handleDoubleClick = (doubleClickAction) => {
-    clicks++
-    if (clicks === 1)
-      setTimeout(() => {
-        if (clicks !== 1)
-          doubleClickAction()
-        clicks = 0
-      }, 300)
-  }
-
-  return (
-    <button className="control btn-wait" onClick={ () => handleDoubleClick(onDoubleClick) }>
-      Wait
-    </button>
-  )
-}
+const PauseButton = ({ onClick }) => (
+  <button className="control btn-wait" onClick={ onClick }>
+    Wait
+  </button>
+)
 
 const ResetButton = ({ onClick }) => (
   <button className="control btn-reset" onClick={ onClick }>

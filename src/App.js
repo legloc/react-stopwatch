@@ -23,7 +23,7 @@ const App = () => {
       <Header />
       <Display seconds={ seconds } />   
       <div className="controls">
-        <PauseButton onDoubleClick={ () => setPaused(true) } />
+        <PauseButton onClick={ () => setPaused(true) } />
 
         { isPaused && <PlayButton onClick={ () => setPaused(false) } /> }
         { !isPaused && <StopButton onClick={ () => { setPaused(true); setSeconds(0) }} /> }
